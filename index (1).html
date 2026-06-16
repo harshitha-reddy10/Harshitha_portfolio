@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>G. Harshitha | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0a0a0a;
+  --bg2:#111111;
+  --bg3:#161616;
+  --card:#131313;
+  --border:#1e1e1e;
+  --border2:#2a2a2a;
+  --pink:#e879a0;
+  --pink2:#f4a7b9;
+  --pink3:#fcd5e0;
+  --pinkglow:rgba(232,121,160,0.2);
+  --text:#ffffff;
+  --muted:#999;
+  --dim:#555;
+  --grad:linear-gradient(135deg,#e879a0,#f4a7b9);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-thumb{background:var(--pink);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;background:rgba(10,10,10,0.92);backdrop-filter:blur(20px);border-bottom:1px solid #1a1a1a;}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.1em;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:.72rem;font-weight:600;color:var(--dim);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;cursor:pointer;}
+.nav-links a:hover,.nav-links a.active{color:var(--pink2);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:1px;transition:.3s;}
+
+/* HERO */
+#home{min-height:100vh;display:flex;align-items:center;padding:0 6%;position:relative;overflow:hidden;}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center;width:100%;z-index:1;position:relative;}
+.hero-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:rgba(232,121,160,0.06);top:-100px;right:-100px;filter:blur(80px);pointer-events:none;}
+.hero-glow2{position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(232,121,160,0.04);bottom:0;left:20%;filter:blur(60px);pointer-events:none;}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:5px 14px;border:1px solid rgba(232,121,160,0.2);background:rgba(232,121,160,0.05);border-radius:4px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--pink2);margin-bottom:1.2rem;}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(--pink);animation:pulse 1.5s infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(.6);opacity:.4;}}
+.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(4.5rem,8vw,7.5rem);line-height:.9;letter-spacing:.02em;margin-bottom:.8rem;}
+.hero-name span{display:block;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.role-row{display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;}
+.role-line{width:28px;height:2px;background:var(--pink);flex-shrink:0;}
+.typed-role{font-size:.95rem;color:var(--muted);}
+.typed-role .t{color:var(--pink2);font-weight:600;}
+.cursor{display:inline-block;width:2px;height:.85em;background:var(--pink);margin-left:1px;vertical-align:middle;animation:blink .7s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+.hero-bio{font-size:.88rem;color:var(--muted);line-height:1.8;margin-bottom:1.8rem;}
+.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:1.6rem;}
+.btn-pink{padding:11px 26px;background:var(--grad);border:none;border-radius:5px;color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:box-shadow .2s,transform .2s;}
+.btn-pink:hover{box-shadow:0 0 24px var(--pinkglow);transform:translateY(-2px);}
+.btn-ghost{padding:11px 26px;background:transparent;border:1px solid var(--border2);border-radius:5px;color:var(--muted);font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s;}
+.btn-ghost:hover{border-color:var(--pink);color:var(--pink2);}
+.soc-row{display:flex;gap:.5rem;flex-wrap:wrap;}
+.soc-btn{padding:7px 16px;border:1px solid var(--border2);border-radius:4px;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:all .2s;}
+.soc-btn:hover{border-color:var(--pink);color:var(--pink2);}
+.hero-right{display:flex;flex-direction:column;gap:.9rem;}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.5rem;display:flex;align-items:center;gap:1.1rem;transition:border-color .25s,transform .25s;}
+.stat-box:hover{border-color:var(--pink);transform:translateX(5px);}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;min-width:50px;}
+.stat-lbl{font-size:.84rem;font-weight:600;color:var(--text);}
+.stat-sub{font-size:.72rem;color:var(--dim);margin-top:2px;}
+
+/* SECTION WRAPPER */
+.section{padding:100px 6% 80px;position:relative;}
+.section:nth-child(even){background:var(--bg2);}
+.section:nth-child(odd){background:var(--bg);}
+
+/* SECTION HEADER */
+.sec-num{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:rgba(232,121,160,0.08);position:absolute;top:60px;left:5%;line-height:1;pointer-events:none;user-select:none;letter-spacing:-.02em;}
+.sec-tag{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pink);font-weight:700;margin-bottom:.4rem;}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,4.5vw,4rem);letter-spacing:.04em;line-height:1;margin-bottom:.4rem;}
+.sec-title span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.divider{width:36px;height:2px;background:var(--grad);margin:.8rem 0 2.2rem;}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;align-items:start;}
+.about-p{font-size:.9rem;color:var(--muted);line-height:1.85;margin-bottom:.9rem;}
+.about-p strong{color:var(--text);}
+.about-p .hl{color:var(--pink2);font-weight:600;}
+.info-col{display:flex;flex-direction:column;gap:.6rem;}
+.info-row{display:flex;align-items:center;gap:.9rem;padding:.9rem 1.1rem;background:var(--card);border:1px solid var(--border);border-radius:8px;transition:border-color .2s;}
+.info-row:hover{border-color:var(--pink);}
+.info-ico{width:34px;height:34px;border-radius:6px;background:rgba(232,121,160,0.08);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+.info-lbl{font-size:.65rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;}
+.info-val{font-size:.82rem;color:var(--text);font-weight:500;margin-top:1px;}
+
+/* EXPERIENCE */
+.exp-list{display:flex;flex-direction:column;gap:1.2rem;max-width:860px;}
+.exp-card{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--pink);border-radius:0 10px 10px 0;padding:1.4rem 1.6rem;transition:transform .2s,border-color .2s;}
+.exp-card:hover{transform:translateX(5px);border-color:var(--pink);}
+.exp-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.8rem;}
+.exp-title{font-size:.98rem;font-weight:700;color:var(--text);}
+.exp-co{font-size:.78rem;color:var(--pink2);font-weight:600;margin-top:2px;}
+.exp-date{font-size:.72rem;color:var(--dim);padding:3px 10px;border:1px solid var(--border2);border-radius:20px;white-space:nowrap;}
+.exp-buls{list-style:none;display:flex;flex-direction:column;gap:.35rem;}
+.exp-buls li{font-size:.83rem;color:var(--muted);line-height:1.6;padding-left:1.1rem;position:relative;}
+.exp-buls li::before{content:'→';position:absolute;left:0;color:var(--pink);font-size:.72rem;top:2px;}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:860px;}
+.sk-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.4rem;transition:border-color .25s,transform .25s;}
+.sk-box:hover{border-color:var(--pink);transform:translateY(-3px);}
+.sk-title{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pink2);margin-bottom:.9rem;display:flex;align-items:center;gap:.5rem;}
+.sk-title::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--pink);display:block;flex-shrink:0;}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;}
+.tag{padding:4px 11px;background:rgba(232,121,160,0.06);border:1px solid rgba(232,121,160,0.15);border-radius:3px;font-size:.74rem;color:var(--text);transition:background .2s;}
+.tag:hover{background:rgba(232,121,160,0.18);}
+
+/* PROJECTS */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.4rem;display:flex;flex-direction:column;gap:.8rem;text-decoration:none;transition:border-color .25s,transform .25s;}
+.proj-card:hover{border-color:var(--pink);transform:translateY(-5px);box-shadow:0 12px 40px rgba(232,121,160,0.08);}
+.proj-hdr{display:flex;justify-content:space-between;align-items:center;}
+.proj-emoji{font-size:1.4rem;}
+.proj-arr{font-size:.85rem;color:var(--dim);transition:color .2s;}
+.proj-card:hover .proj-arr{color:var(--pink2);}
+.proj-name{font-size:.9rem;font-weight:700;color:var(--text);line-height:1.3;}
+.proj-stack{font-size:.7rem;color:var(--pink2);font-weight:600;letter-spacing:.04em;margin-top:2px;}
+.proj-desc{font-size:.8rem;color:var(--muted);line-height:1.65;flex:1;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:.3rem;}
+.proj-tag{padding:2px 8px;background:rgba(255,255,255,.03);border:1px solid var(--border2);border-radius:2px;font-size:.68rem;color:var(--dim);}
+
+/* CERTIFICATIONS */
+.certs-list{display:flex;flex-direction:column;gap:.8rem;max-width:700px;}
+.cert-row{display:flex;align-items:center;gap:1.1rem;padding:1.1rem 1.4rem;background:var(--card);border:1px solid var(--border);border-radius:8px;text-decoration:none;transition:border-color .2s,transform .2s;}
+.cert-row:hover{border-color:var(--pink);transform:translateX(6px);}
+.cert-ico{width:44px;height:44px;border-radius:9px;background:rgba(232,121,160,0.08);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.cert-info{flex:1;}
+.cert-name{font-size:.9rem;font-weight:600;color:var(--text);}
+.cert-by{font-size:.73rem;color:var(--dim);margin-top:2px;}
+.cert-cta{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--pink);padding:5px 12px;border:1px solid rgba(232,121,160,0.28);border-radius:3px;white-space:nowrap;transition:background .2s;}
+.cert-row:hover .cert-cta{background:rgba(232,121,160,0.1);}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:start;}
+.contact-intro{font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:1.4rem;}
+.c-items{display:flex;flex-direction:column;gap:.65rem;}
+.c-item{display:flex;align-items:center;gap:1rem;padding:1rem 1.3rem;background:var(--card);border:1px solid var(--border);border-radius:8px;text-decoration:none;transition:border-color .2s,transform .2s;}
+.c-item:hover{border-color:var(--pink);transform:translateX(5px);}
+.c-ico{width:38px;height:38px;border-radius:7px;background:rgba(232,121,160,0.08);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0;}
+.c-lbl{font-size:.65rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;}
+.c-val{font-size:.83rem;color:var(--text);font-weight:500;margin-top:1px;}
+.avail-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.8rem;position:sticky;top:80px;}
+.avail-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.05em;margin-bottom:.5rem;}
+.avail-title span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.avail-txt{font-size:.83rem;color:var(--muted);line-height:1.75;}
+.avail-bdgs{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem;}
+.avail-bdg{padding:4px 12px;background:rgba(232,121,160,0.07);border:1px solid rgba(232,121,160,0.18);border-radius:3px;font-size:.7rem;color:var(--pink2);font-weight:600;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+.reveal-l{opacity:0;transform:translateX(-20px);transition:opacity .6s ease,transform .6s ease;}
+.reveal-l.in{opacity:1;transform:none;}
+.reveal-r{opacity:0;transform:translateX(20px);transition:opacity .6s ease,transform .6s ease;}
+.reveal-r.in{opacity:1;transform:none;}
+
+/* FOOTER */
+footer{padding:2rem 6%;text-align:center;font-size:.74rem;color:var(--dim);border-top:1px solid var(--border);}
+footer span{color:var(--pink);}
+
+/* BACK TO TOP */
+.btt{position:fixed;bottom:24px;right:24px;width:40px;height:40px;border-radius:50%;background:var(--grad);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff;z-index:200;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;}
+.btt.show{opacity:1;pointer-events:all;}
+.btt:hover{transform:translateY(-3px);}
+
+@media(max-width:900px){
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;}
+  .hero-right,.stat-stack{display:none;}
+  .skills-grid{grid-template-columns:1fr;}
+  .proj-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .nav-links{display:none;position:fixed;top:60px;left:0;right:0;flex-direction:column;background:var(--bg2);padding:1.5rem 6%;gap:1rem;border-bottom:1px solid var(--border);}
+  .nav-links.open{display:flex;}
+  .hamburger{display:flex;}
+  .section{padding:80px 5% 60px;}
+  #home{padding:80px 5% 40px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">GH.</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- BACK TO TOP -->
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ═══ HERO ═══ -->
+<section id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-badge"><div class="pulse"></div>Open to Opportunities · 2026 Fresher</div>
+      <h1 class="hero-name">G.<span>Harshitha</span></h1>
+      <div class="role-row">
+        <div class="role-line"></div>
+        <div class="typed-role"><span class="t" id="typed"></span><span class="cursor"></span></div>
+      </div>
+      <p class="hero-bio">Final-year B.Tech CSE (Data Science) student from Chittoor, AP — passionate about transforming raw data into meaningful insights through analytics, visualizations and intelligent systems.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-pink">View My Work →</a>
+        <a href="#contact" class="btn-ghost">Contact Me</a>
+      </div>
+      <div class="soc-row">
+        <a href="https://www.linkedin.com/in/g-harshitha-reddy-639b452a8" target="_blank" class="soc-btn">LinkedIn</a>
+        <a href="https://github.com/harshitha-reddy10" target="_blank" class="soc-btn">GitHub</a>
+        <a href="https://www.geeksforgeeks.org/profile/harshithafkb3?tab=activity" target="_blank" class="soc-btn">GFG</a>
+        <a href="mailto:harshithareddy967@gmail.com" class="soc-btn">Email</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="stat-box"><div class="stat-num">3+</div><div><div class="stat-lbl">Power BI Dashboards</div><div class="stat-sub">E-Commerce · Retail · College</div></div></div>
+      <div class="stat-box"><div class="stat-num">2</div><div><div class="stat-lbl">Internships</div><div class="stat-sub">Skilldzire · EduSkills</div></div></div>
+      <div class="stat-box"><div class="stat-num">4</div><div><div class="stat-lbl">Certifications</div><div class="stat-sub">Google · NPTEL · Murf · EduSkills</div></div></div>
+      <div class="stat-box"><div class="stat-num">8.0</div><div><div class="stat-lbl">CGPA</div><div class="stat-sub">B.Tech CSE Data Science · 2026</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 01 ABOUT ═══ -->
+<section id="about" class="section">
+  <div class="sec-num">01</div>
+  <div class="sec-tag">Who I Am</div>
+  <h2 class="sec-title reveal">About <span>Me</span></h2>
+  <div class="divider"></div>
+  <div class="about-grid">
+    <div class="reveal-l">
+      <p class="about-p">I am <strong>G. Harshitha</strong>, a final-year <span class="hl">B.Tech CSE (Data Science)</span> student at Mother Theresa Institute of Engineering and Technology, Chittoor, Andhra Pradesh, with a CGPA of 8.0.</p>
+      <p class="about-p">I am a driven and detail-oriented professional with strong interest in <strong>Data Analytics</strong>, <strong>Data Science</strong>, <strong>Python Development</strong> and <strong>Power BI</strong>. I specialize in transforming complex datasets into clear, actionable insights through interactive dashboards, EDA and automated reporting workflows.</p>
+      <p class="about-p">I have hands-on experience building <strong>Power BI dashboards</strong> using DAX, Power Query and KPI modelling for real-world datasets. My Python skills span scripting, automation and data processing using Pandas and NumPy, while my web development background covers HTML, CSS and JavaScript.</p>
+      <p class="about-p">I completed internships at <strong>Skilldzire</strong> (Web Development) and <strong>EduSkills</strong> (Python Full Stack), where I worked on practical projects under professional environments. I actively solve <strong>GFG Daily Coding Challenges</strong> to sharpen my analytical thinking and stay consistent.</p>
+    </div>
+    <div class="info-col reveal-r">
+      <div class="info-row"><div class="info-ico">🎓</div><div><div class="info-lbl">Degree</div><div class="info-val">B.Tech CSE (Data Science)</div></div></div>
+      <div class="info-row"><div class="info-ico">🏫</div><div><div class="info-lbl">College</div><div class="info-val">MIET, Chittoor</div></div></div>
+      <div class="info-row"><div class="info-ico">📅</div><div><div class="info-lbl">Batch</div><div class="info-val">2022 – 2026</div></div></div>
+      <div class="info-row"><div class="info-ico">📊</div><div><div class="info-lbl">CGPA</div><div class="info-val">8.0 / 10</div></div></div>
+      <div class="info-row"><div class="info-ico">📍</div><div><div class="info-lbl">Location</div><div class="info-val">Chittoor, Andhra Pradesh</div></div></div>
+      <div class="info-row"><div class="info-ico">🌐</div><div><div class="info-lbl">Languages</div><div class="info-val">English · Telugu</div></div></div>
+      <div class="info-row"><div class="info-ico">🎯</div><div><div class="info-lbl">Looking For</div><div class="info-val">Data Analyst · BI Developer · Python Dev</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 02 EXPERIENCE ═══ -->
+<section id="experience" class="section">
+  <div class="sec-num">02</div>
+  <div class="sec-tag">Work History</div>
+  <h2 class="sec-title reveal">My <span>Experience</span></h2>
+  <div class="divider"></div>
+  <div class="exp-list">
+    <div class="exp-card reveal">
+      <div class="exp-top">
+        <div><div class="exp-title">Web Development Intern</div><div class="exp-co">Skilldzire</div></div>
+        <div class="exp-date">May 2025 – June 2025 · Remote</div>
+      </div>
+      <ul class="exp-buls">
+        <li>Built and styled responsive web pages using HTML, CSS and JavaScript following accessibility best practices.</li>
+        <li>Developed interactive UI components with event-driven JavaScript logic for dynamic user experiences.</li>
+        <li>Collaborated on front-end module integration, improving code structure and page load performance.</li>
+        <li>Documented bug fixes and UI improvements for team reference and future maintenance.</li>
+      </ul>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-top">
+        <div><div class="exp-title">Python Full Stack Intern</div><div class="exp-co">EduSkills</div></div>
+        <div class="exp-date">2024 · Remote</div>
+      </div>
+      <ul class="exp-buls">
+        <li>Developed Python scripts for backend logic, API operations and structured UI handling using PyQt5.</li>
+        <li>Improved code organization and module integration efficiency across multiple project components.</li>
+        <li>Enhanced testing quality through structured debugging, code reviews and workflow documentation.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 03 SKILLS ═══ -->
+<section id="skills" class="section">
+  <div class="sec-num">03</div>
+  <div class="sec-tag">Tech Stack</div>
+  <h2 class="sec-title reveal">My <span>Skills</span></h2>
+  <div class="divider"></div>
+  <div class="skills-grid">
+    <div class="sk-box reveal"><div class="sk-title">BI & Visualization</div><div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">KPIs</span><span class="tag">Drill-through</span><span class="tag">RLS</span><span class="tag">Tableau</span><span class="tag">Matplotlib</span><span class="tag">Excel Automation</span></div></div>
+    <div class="sk-box reveal"><div class="sk-title">Programming</div><div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">PyQt5</span></div></div>
+    <div class="sk-box reveal"><div class="sk-title">Data & Analytics</div><div class="tags"><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">EDA</span><span class="tag">Data Modelling</span><span class="tag">Data Profiling</span><span class="tag">Statistical Analysis</span><span class="tag">Data Cleaning</span></div></div>
+    <div class="sk-box reveal"><div class="sk-title">Tools & Platforms</div><div class="tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VS Code</span><span class="tag">Jupyter Notebook</span><span class="tag">Power BI Desktop</span><span class="tag">Murf AI</span></div></div>
+  </div>
+</section>
+
+<!-- ═══ 04 PROJECTS ═══ -->
+<section id="projects" class="section">
+  <div class="sec-num">04</div>
+  <div class="sec-tag">What I've Built</div>
+  <h2 class="sec-title reveal">My <span>Projects</span></h2>
+  <div class="divider"></div>
+  <div class="proj-grid">
+    <a href="https://github.com/harshitha-reddy10" target="_blank" class="proj-card reveal">
+      <div class="proj-hdr"><div class="proj-emoji">📊</div><span class="proj-arr">↗</span></div>
+      <div><div class="proj-name">E-Commerce Sales Dashboard</div><div class="proj-stack">Power BI · DAX · Power Query</div></div>
+      <div class="proj-desc">Tracks revenue, orders, return rate and customer segments across regions. Power Query + DAX measures cut reporting effort by 40%.</div>
+      <div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">DAX</span><span class="proj-tag">KPIs</span></div>
+    </a>
+    <a href="https://github.com/harshitha-reddy10" target="_blank" class="proj-card reveal">
+      <div class="proj-hdr"><div class="proj-emoji">🛒</div><span class="proj-arr">↗</span></div>
+      <div><div class="proj-name">Retail Sales Performance Dashboard</div><div class="proj-stack">Power BI · SQL</div></div>
+      <div class="proj-desc">MoM variance, profit margin and revenue DAX measures with drill-through reporting. Reduced manual effort by 35%.</div>
+      <div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">SQL</span><span class="proj-tag">Drill-through</span></div>
+    </a>
+    <a href="https://github.com/harshitha-reddy10" target="_blank" class="proj-card reveal">
+      <div class="proj-hdr"><div class="proj-emoji">🏫</div><span class="proj-arr">↗</span></div>
+      <div><div class="proj-name">FabricLand College Quest</div><div class="proj-stack">Power BI Dashboard</div></div>
+      <div class="proj-desc">Multi-metric dashboard for college performance, tuition, placements and outcomes. Insight visibility improved by 30%.</div>
+      <div class="proj-tags"><span class="proj-tag">Power BI</span><span class="proj-tag">KPIs</span><span class="proj-tag">DAX</span></div>
+    </a>
+    <a href="https://github.com/harshitha-reddy10" target="_blank" class="proj-card reveal">
+      <div class="proj-hdr"><div class="proj-emoji">📝</div><span class="proj-arr">↗</span></div>
+      <div><div class="proj-name">Plugin-Based Text Editor</div><div class="proj-stack">Python · PyQt5</div></div>
+      <div class="proj-desc">Modular GUI text editor with plugin system, file utilities and dynamic UI event handling for improved workflow.</div>
+      <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">PyQt5</span><span class="proj-tag">GUI</span></div>
+    </a>
+    <a href="https://github.com/harshitha-reddy10" target="_blank" class="proj-card reveal">
+      <div class="proj-hdr"><div class="proj-emoji">🎙️</div><span class="proj-arr">↗</span></div>
+      <div><div class="proj-name">AI Voice Generation</div><div class="proj-stack">Murf AI · Automation</div></div>
+      <div class="proj-desc">Automated voice-over pipelines using Murf AI with expressive speech synthesis and optimized script-to-audio workflows.</div>
+      <div class="proj-tags"><span class="proj-tag">Murf AI</span><span class="proj-tag">Automation</span><span class="proj-tag">AI</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ 05 CERTIFICATIONS ═══ -->
+<section id="certifications" class="section">
+  <div class="sec-num">05</div>
+  <div class="sec-tag">Credentials</div>
+  <h2 class="sec-title reveal">My <span>Certifications</span></h2>
+  <div class="divider"></div>
+  <div class="certs-list">
+    <a href="https://drive.google.com/file/d/1vCsNwb5shMr3S6f4ErLMzVk2m87UItCA/view?usp=drivesdk" target="_blank" class="cert-row reveal">
+      <div class="cert-ico">🔵</div>
+      <div class="cert-info"><div class="cert-name">Google Data Analytics</div><div class="cert-by">Coursera · Google</div></div>
+      <div class="cert-cta">View ↗</div>
+    </a>
+    <a href="https://drive.google.com/file/d/1yjiuzubQ2VFwP31QlKlcOaoIDl1_-Goq/view?usp=drivesdk" target="_blank" class="cert-row reveal">
+      <div class="cert-ico">🎙️</div>
+      <div class="cert-info"><div class="cert-name">Murf AI Agent Challenge</div><div class="cert-by">Murf AI</div></div>
+      <div class="cert-cta">View ↗</div>
+    </a>
+    <a href="https://drive.google.com/file/d/15zyFd1Dj3Ft0Eq5Bn9pGEp8WKk_pUFsL/view?usp=drivesdk" target="_blank" class="cert-row reveal">
+      <div class="cert-ico">🟦</div>
+      <div class="cert-info"><div class="cert-name">NPTEL IoT Certification</div><div class="cert-by">NPTEL · IIT</div></div>
+      <div class="cert-cta">View ↗</div>
+    </a>
+    <a href="https://drive.google.com/file/d/1ion4G0cjvcqdVtCRA_E9YVHwZOtV8gya/view?usp=drivesdk" target="_blank" class="cert-row reveal">
+      <div class="cert-ico">🐍</div>
+      <div class="cert-info"><div class="cert-name">Python Full Stack Internship</div><div class="cert-by">EduSkills</div></div>
+      <div class="cert-cta">View ↗</div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ 06 CONTACT ═══ -->
+<section id="contact" class="section">
+  <div class="sec-num">06</div>
+  <div class="sec-tag">Let's Talk</div>
+  <h2 class="sec-title reveal">Get In <span>Touch</span></h2>
+  <div class="divider"></div>
+  <div class="contact-grid">
+    <div>
+      <p class="contact-intro reveal-l">I'm actively looking for opportunities in Data Analytics, Power BI Development, Data Science and Python Development. If you're hiring, collaborating or just want to connect — feel free to reach out!</p>
+      <div class="c-items">
+        <a href="mailto:harshithareddy967@gmail.com" class="c-item reveal"><div class="c-ico">✉️</div><div><div class="c-lbl">Email</div><div class="c-val">harshithareddy967@gmail.com</div></div></a>
+        <a href="tel:9550697451" class="c-item reveal"><div class="c-ico">📞</div><div><div class="c-lbl">Phone</div><div class="c-val">9550697451</div></div></a>
+        <a href="https://www.linkedin.com/in/g-harshitha-reddy-639b452a8" target="_blank" class="c-item reveal"><div class="c-ico">💼</div><div><div class="c-lbl">LinkedIn</div><div class="c-val">G. Harshitha Reddy</div></div></a>
+        <a href="https://github.com/harshitha-reddy10" target="_blank" class="c-item reveal"><div class="c-ico">🐙</div><div><div class="c-lbl">GitHub</div><div class="c-val">harshitha-reddy10</div></div></a>
+        <a href="https://www.geeksforgeeks.org/profile/harshithafkb3?tab=activity" target="_blank" class="c-item reveal"><div class="c-ico">💻</div><div><div class="c-lbl">GeeksForGeeks</div><div class="c-val">harshithafkb3</div></div></a>
+      </div>
+    </div>
+    <div class="avail-box reveal-r">
+      <div class="avail-title">Currently <span>Available</span></div>
+      <p class="avail-txt">Open to full-time roles, internships and freelance projects in data analytics, business intelligence, data science and Python development.</p>
+      <div class="avail-bdgs">
+        <span class="avail-bdg">Data Analyst</span>
+        <span class="avail-bdg">BI Developer</span>
+        <span class="avail-bdg">Python Developer</span>
+        <span class="avail-bdg">Data Scientist</span>
+        <span class="avail-bdg">Fresher · 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Built with <span>♥</span> by G. Harshitha · 2026 · Chittoor, Andhra Pradesh</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el => observer.observe(el));
+
+// Active nav
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
+  // Back to top
+  document.getElementById('btt').classList.toggle('show', window.scrollY > 400);
+});
+
+// Typing animation
+const roles = ['Data Analyst', 'Python Developer', 'Data Scientist', 'BI Developer'];
+let ri = 0, ci = 0, del = false;
+const el = document.getElementById('typed');
+function type() {
+  const w = roles[ri];
+  if (!del) { el.textContent = w.slice(0, ++ci); if (ci === w.length) { del = true; setTimeout(type, 1800); return; } }
+  else { el.textContent = w.slice(0, --ci); if (ci === 0) { del = false; ri = (ri + 1) % roles.length; } }
+  setTimeout(type, del ? 50 : 85);
+}
+type();
+</script>
+</body>
+</html>
